@@ -1,3 +1,4 @@
+require(markdown)
 shinyUI(pageWithSidebar(
   
   headerPanel(
