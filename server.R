@@ -1,7 +1,5 @@
-list.of.packages <- c("shiny", "ctnamecleaner")
-new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
-lapply(list.of.packages,function(x){library(x,character.only=TRUE)}) 
+require(shiny)
+require(ctnamecleaner)
 
 shinyServer(function(input, output) {
   
