@@ -6,5 +6,6 @@ This is the a browser interface of an [R package](https://github.com/trendct/ctn
 * Upload a CSV (comma separated value) of your data. 
   * Excel spreadsheets (xlxs files) [will not](https://guides.instructure.com/m/4214/l/163483-how-do-i-save-an-excel-file-as-a-csv-text-file) work.
 * Select the column that has the town names
-* Click the **Clean names** button
+* Select whether you want to add a column of clean town names or population
+* Click the **Churn** button
 * Download file

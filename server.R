@@ -23,6 +23,14 @@ shinyServer(function(input, output) {
     selectInput("from", "Town names column",items)
   })
   
+  output$actionButton <- renderUI({
+    df <-filedata()
+    
+    if (is.null(df)) return(NULL)
+    
+    radioButtons("action", "Append:", c("Clean names"="nameclean", "Population"="pop"))
+  })
+  
   #The geocoding bit... Isolate variables so we don't keep firing this...
   geodata <- reactive({
     if (input$getgeo == 0) return(NULL)
@@ -32,8 +40,14 @@ shinyServer(function(input, output) {
     isolate({
       dummy=filedata()
       fr=input$from
+      bu=input$action
       names(dummy)[names(dummy) == fr] <- 'Town'
-      dummy <- ctnamecleaner(Town, dummy)
+      
+      if (bu=="nameclean") {
+      dummy <- ctnamecleaner(Town, dummy) 
+      } else {
+        dummy <- ctpopulator(Town, dummy)
+      }
       dummy
     })
   })

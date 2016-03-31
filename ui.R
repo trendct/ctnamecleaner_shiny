@@ -14,8 +14,9 @@ shinyUI(pageWithSidebar(
               accept=c('text/csv', 'text/comma-separated-values,text/plain')),
     #Define some dynamic UI elements - these will be lists containing file column names
     uiOutput("fromCol"),
+    uiOutput("actionButton"),
     #We don't want the geocoder firing until we're ready...
-    actionButton("getgeo", "Clean names"),
+    actionButton("getgeo", "Churn"),
     downloadButton('downloadData', 'Download')
     
   ),
